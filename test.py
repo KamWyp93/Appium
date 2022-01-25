@@ -26,6 +26,7 @@ class test_leroy(unittest.TestCase):
 
 
     def testApp1(self):
+        # getting to item site
         driver = self.driver
         button = driver.find_element_by_xpath(
                     "//android.widget.TextView[@bounds='[91,54][182,128]']")
@@ -36,6 +37,20 @@ class test_leroy(unittest.TestCase):
         driver.find_element_by_xpath(
             "//android.widget.TextView[@bounds='[28,153][95,222]']").click()
         sleep(3)
+        driver.find_element_by_xpath(
+            "//android.widget.ImageView[@bounds='[18,508][193,683]']").click()
+        sleep(3)
+
+        # getting price of an item
+        priceField = driver.find_element_by_xpath(
+            "//android.widget.TextView[@bounds='[28,891][312,985]']")
+        price = priceField.text
+        print(price)
+
+        # Assert
+        self.assertEqual("119 zł/opak. ", price)
+
+
 
 
 
